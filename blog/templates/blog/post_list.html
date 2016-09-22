@@ -6,13 +6,22 @@
         <div>
             <h1><a href="">Gal's Django Girls Blog</a></h1>
         </div>
+        {% for post in posts %}
+            {{ post }}
+        {% endfor %}
 
         <div>
             <p>published: 22.09.2016, 14:14</p>
             <h2><a href="">My first post</a></h2>
             <p> html is fun</p>
         </div>
-
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
         <div>
             <p>published: 05.03.2016, 12:14</p>
             <h2><a href="">I had a birthday</a></h2>
@@ -22,5 +31,6 @@
         <div>
           <p><strong>Django girls</strong></p>
           <a href="https://djangogirls.org">link</a>
+        </div>
     </body>
 </html>
